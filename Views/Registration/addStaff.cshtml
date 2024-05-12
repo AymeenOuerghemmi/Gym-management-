@@ -1,0 +1,81 @@
+﻿@model GymMGT.Models.staff
+@{
+    ViewData["Title"] = "Staff Registration";
+}
+<h1>Add Staff</h1>
+<div class="container mt-3 mr-lg-5 mb-4">
+    
+    <br />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div>
+        <form method="post" asp-controller="Registration" asp-action="addStaff">
+
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <br /><input type="text" asp-for="Name" class="form-control col-6 mr-2 align-items-center" placeholder="Name" />
+
+            <br /> <span asp-validation-for="LastName" class="text-danger"></span>
+            <input type="text" asp-for="LastName" class="form-control col-6 align-items-center" placeholder="LastName" />
+
+            <br /> <span asp-validation-for="Email" class="text-danger"></span>
+            <input type="email" asp-for="Email" class="form-control col-6 mr-2 align-items-center" placeholder="Email" />
+
+            <br /> <span asp-validation-for="Phone" class="text-danger"></span>
+            <input type="number" asp-for="Phone" class="form-control col-6 align-items-center" placeholder="Phone" />
+
+            <span asp-validation-for="Address" class="text-danger"></span>
+            <br /> <input type="text" asp-for="Address" class="form-control col-6 mr-2 align-items-center" placeholder="Address" />
+
+            <br />
+            <span asp-validation-for="Gender" class="text-danger"></span>
+            <select class="form-control col-6 align-items-center" asp-for="Gender">
+                <option value="0" disabled selected hidden>
+                    Gender
+                </option>
+                <option value="Male">
+                    Male
+                </option>
+                <option value="Female">
+                    Female
+                </option>
+            </select>
+
+            <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            <br /> <input type="date" class="form-control col-6" placeholder="Created on" asp-for="CreatedOn" />
+
+            <br /> <span asp-validation-for="Poste" class="text-danger"></span>
+            <select class="form-control col-6 mr-2 align-items-center" asp-for="Poste">
+                <option value="" disabled selected hidden>
+                    Poste
+                </option>
+                <option value="Staff Administratif">
+                    Staff Administratif
+                </option>
+                <option value="Staff technique">
+                    Staff technique
+                </option>
+                <option value="Ressource Humaine">
+                    Ressource Humaine
+                </option>
+                <option value="Coach">
+                    Coach
+                </option>
+            </select>
+
+            <br /> <span asp-validation-for="Salaire" class="text-danger"></span>
+            <input type="text" asp-for="Salaire" class="form-control col-6 align-items-center" placeholder="Salaire" />
+
+            <span asp-validation-for="Image" class="text-danger"></span>
+            <br /> <input type="file" asp-for="Image" class="form-control col-6 mr-2 align-items-center" value="Select an Image" />
+
+            <br /> <button type="submit" id="updateBtn" class="btn btn-success mb-3">Add</button>
+        </form>
+        <a asp-controller="Registration" asp-action="ShowStaff" class="btn btn-info mb-3">Back</a>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
